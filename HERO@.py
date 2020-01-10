@@ -368,3 +368,5 @@ while 1:
 
 
     pygame.display.update()
+
+print('SLAVA UKRAINI')
