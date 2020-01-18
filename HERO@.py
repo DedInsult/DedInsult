@@ -10,6 +10,7 @@ dimension=pygame.display.set_caption('Defence Of The Pudge')
 
 WHITE = (255, 255, 255)
 
+TIME=0
 
 
 class building(pygame.sprite.Sprite):
@@ -64,19 +65,19 @@ class Soldier(pygame.sprite.Sprite):
             else:
                 if self.Line=='Bottom' and self.team=='radiant':
                     if self.placeX<775:
-                        self.placeX+=2
-                        self.rect.move_ip(2, 0)
+                        self.placeX+=1
+                        self.rect.move_ip(1, 0)
                     else:
-                        self.rect.move_ip(0, -2)
-                        self.placeY-=2
+                        self.rect.move_ip(0, -1)
+                        self.placeY-=1
                 elif self.Line=='Middle' and self.team=='radiant':
-                    self.placeX+=2
-                    self.placeY+=2
-                    self.rect.move_ip(2, 2)
+                    self.placeX+=1
+                    self.placeY+=1
+                    self.rect.move_ip(1, 1)
                 elif self.Line=='Top' and self.team=='radiant':
                     if self.placeY<=775:
-                        self.placeX+=2
-                        self.rect.move_ip(2, 0)
+                        self.placeX+=1
+                        self.rect.move_ip(1, 0)
             
         for i in creepsradiant:
             if (int( self.placeX - i.placeX )**2 + int(self.placeY - i.placeY)**2)**(1/2) <=10 and i.team != self.team:
@@ -85,22 +86,22 @@ class Soldier(pygame.sprite.Sprite):
             else:
                 if self.Line=='Top' and self.team=='dire':
                     if self.placeX>775:
-                        self.placeX-=2
-                        self.rect.move_ip(-2, 0)
+                        self.placeX-=1
+                        self.rect.move_ip(-1, 0)
                     else:
-                        self.rect.move_ip(0, 2)
-                        self.placeY+=2
+                        self.rect.move_ip(0, 1)
+                        self.placeY+=1
                 elif self.Line=='Middle' and self.team=='dire':
-                    self.placeX-=2
-                    self.placeY-=2
-                    self.rect.move_ip(-2, -2)
+                    self.placeX-=1
+                    self.placeY-=1
+                    self.rect.move_ip(-1, -1)
                 elif self.Line=='Bottom' and self.team=='dire':
                     if self.placeY<=775:
-                        self.placeY+=2
-                        self.rect.move_ip(0, 2)
+                        self.placeY+=1
+                        self.rect.move_ip(0, 1)
                     else:
-                        self.placeX-=2
-                        self.rect.move_ip(-2, 0)
+                        self.placeX-=1
+                        self.rect.move_ip(-1, 0)
         for i in list_of_towers:
             if (int( self.placeX - i.placeX )**2 + int(self.placeY - i.placeY)**2)**(1/2) <=10 and i.team != self.team:
                 i.hp-=self.damage
@@ -114,19 +115,19 @@ class Soldier(pygame.sprite.Sprite):
                         return
                 if self.Line=='Bottom' and self.team=='radiant':
                     if self.placeX<775:
-                        self.placeX+=2
-                        self.rect.move_ip(2, 0)
+                        self.placeX+=1
+                        self.rect.move_ip(1, 0)
                     else:
-                        self.rect.move_ip(0, -2)
-                        self.placeY-=2
+                        self.rect.move_ip(0, -1)
+                        self.placeY-=1
                 elif self.Line=='Middle' and self.team=='radiant':
-                    self.placeX+=2
-                    self.placeY+=2
-                    self.rect.move_ip(2, 2)
+                    self.placeX+=1
+                    self.placeY+=1
+                    self.rect.move_ip(1, 1)
                 elif self.Line=='Top' and self.team=='radiant':
                     if self.placeY<=775:
-                        self.placeX+=2
-                        self.rect.move_ip(2, 0)
+                        self.placeX+=1
+                        self.rect.move_ip(1, 0)
     def creep_check_hp(self):
         if self.hp<=0 and self.team=='dire':
             list_of_soldiers.remove(self)
@@ -276,12 +277,40 @@ t2=dire()
 tower1 = tower(100, 1000, 50, 50, 'radiant', 1, 350, 450, map_surf, 'DOTATOWERDIRE.png')
 tower2 = tower(100, 1000, 50, 50, 'radiant', 2, 250, 550, map_surf, 'DOTATOWERDIRE.png')
 tower3 = tower(100, 5000, 50, 50, 'radiant', 3, 150, 650, map_surf, 'DOTATOWERDIRE.png')
-tower4 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+tower4 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 650, map_surf, 'DOTATOWERDIRE.png')
+#tower5 = tower(100, 10000, 50, 50, 'radiant', 4, 150, 550, map_surf, 'DOTATOWERDIRE.png')
+
+#tower6 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower7 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower8 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+
+#tower9 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower10 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower11 = tower(100, 10000, 50, 50, 'radiant', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+
+
+#tower12 = tower(100, 1000, 50, 50, 'dire', 1, 350, 450, map_surf, 'DOTATOWERDIRE.png')
+#tower13 = tower(100, 1000, 50, 50, 'dire', 2, 250, 550, map_surf, 'DOTATOWERDIRE.png')
+#tower14 = tower(100, 5000, 50, 50, 'dire', 3, 150, 650, map_surf, 'DOTATOWERDIRE.png')
+#tower15 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower16 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+
+#tower17 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower18 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower19 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+
+#tower20 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower21 = tower(100, 10000, 50, 50, 'dire', 4, 50, 750, map_surf, 'DOTATOWERDIRE.png')
+#tower22 = tower(100, 10000, 50, 50, 'dire', 4, 50, 550, map_surf, 'DOTATOWERDIRE.png')
+
+
 shrine1 = shrine(500, 5, 5, 'radiant', 700, 700, 'SHRINERADIANT.png' )
 shrine2 = shrine(500, 5, 5, 'dire', 150, 150, 'SHRINEDIRE.png' )
 
+list_of_towers = [tower1, tower2, tower3,tower4]
 # list of Tower objects
-list_of_towers = [tower1, tower2, tower3, tower4]
+#list_of_towers = [tower1, tower2, tower3,tower4, tower5, tower6, tower7, tower8, tower9, tower10, tower11, tower12,
+ #tower13, tower14, tower15, tower16, tower17, tower18, tower19, tower20, tower21, tower22]
 list_of_shirnes = [shrine1, shrine2]
 creepsradiant=[]
 list_of_soldiers = []
@@ -306,7 +335,9 @@ PLACEXD=775
 PLACEYD=300
 
 
+
 while 1:
+    TIME+=1
     clock.tick(5)
     MONITOR.blit(scale, scale_rect) 
     pressed_key=pygame.key.get_pressed()
@@ -319,26 +350,27 @@ while 1:
 
 
 
-    if len(creepsradiant)<5:
-        creepsradiant.append(Soldier('radiant', 10, 1000, PLACEXR, PLACEYR, 'rogue.png', 'Bottom'))
-        PLACEXR+=1
-        PLACEYR+=1
+    if TIME%90==0:
+        for i in range(5):
+            creepsradiant.append(Soldier('radiant', random.randint(18, 22), 550, PLACEXR, PLACEYR, 'rogue.png', 'Bottom'))
+            PLACEXR+=random.randint(-2, 3)
+            PLACEYR+=random.randint(-2, 3)
     else:
         PLACEXR=300
         PLACEYR=775
 
 
     
-    if len(list_of_soldiers)<5:
-        list_of_soldiers.append(Soldier('dire', 10, 1000, PLACEXD, PLACEYD, 'knight.png', 'Bottom'))
-        PLACEXD-=1
-        PLACEYD-=1
+    if TIME%90==0:
+        for i in range(5):
+            list_of_soldiers.append(Soldier('dire', random.randint(18, 22), 550, PLACEXD, PLACEYD, 'knight.png', 'Bottom'))
+            PLACEXD-=random.randint(-2, 3)
+            PLACEYD-=random.randint(-2, 3)
     else:
         PLACEXD=775
         PLACEYD=300
 
         
-
 
 
                    
